@@ -2,9 +2,13 @@ import os
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
 
 from media.models import Movies
+from media_views.utility.check_priv import can_modify, can_view
 
+@user_passes_test(can_view, login_url='homepage')
+@user_passes_test(can_modify, login_url='homepage')
 def add_this_movie(request:HttpRequest):
     if request.method == 'POST':
         files = request.FILES.getlist('movie_files')

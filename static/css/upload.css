@@ -1,0 +1,13 @@
+.upload_description {
+	color:burlywood;
+    display: inline;
+    font-size: 1.5vw;
+  	font-weight: 500;
+}
+
+.submit_button {
+	height: 10vh;         /* 10% of the viewport height */
+	min-height: 44px;     /* Safety net: ensures it doesn't get too small on tiny screens */
+	font-size: 3vh;       /* Scales the text size with the screen height too */
+	padding: 0 5vw;
+}

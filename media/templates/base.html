@@ -2,12 +2,10 @@
 
 <html>
     <head>
-        {% comment %} PREDEF CSS FILES {% endcomment %}
         <link
             rel="stylesheet" 
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
-            
             href="{%static 'css/base.css'%}"
         >
         
@@ -15,9 +13,10 @@
             rel="stylesheet" 
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
-            
-            href="{%static 'css/text.css'%}"
+            href="{%static 'css/base_text.css'%}"
         >
+
+        <link rel="icon" type="image/gif" href="{%static 'img/icon.gif'%}">
         
         {% comment %} aditional resource like css/js {% endcomment %}
         {% block res %}
@@ -28,39 +27,47 @@
     </head>
 
     <body>
+        {% comment %} BACKGROUND IMAGE {% endcomment %}
         <img 
-            class="base_background" 
+            class="base_background_image"
             referrerpolicy="no-referrer"
             draggable="false"
-
-            src="{%static 'img/bg.jpg'%}?v0"
-        > 
+            src="{%static 'img/bg.jpg'%}?v1"
+        >
 
         <header>
-            {% comment %} ACCOUNT SECTION {% endcomment %}
+            {% comment %} IF AUTHENFIFICATED {% endcomment %}
             {% if user.is_authenticated %}
-                <div class="user_text">
+                <div class="user_on_color">
                     [{{ user.username }}]
                     <br>
                 </div>
-
-                <div class="login_text">
-                    <a href="{% url 'logout' %}">logout</a>
+                <div class="option_account_color" >
+                    <a href="{% url 'logout' %}">
+                        logout
+                    </a>
                 </div>
-
+            {% comment %} IF UN-AUTHENTIFICATED {% endcomment %}
             {% else %}
-                <div class="user_text">
+                <div class="user_off_color">
                     Not connected
                     <br>
                 </div>
-
-                <div class="login_text">
-                    <a href="{% url 'register' %}">Register</a>
+                <div class="option_account_color">
+                    <a href="{% url 'register' %}">
+                        Register
+                    </a>
+                    
                     |
-                    <a href="{% url 'login' %}">Login</a>
+                    
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
                 </div>
             {% endif %}
-
+            
+            <br><br>
+                        
             {% block header %}
             {% endblock %}
             <br>

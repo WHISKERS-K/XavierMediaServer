@@ -9,13 +9,21 @@
         
         href="{%static 'css/spinner.css'%}"
     >
+    <link
+        rel="stylesheet" 
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        href="{%static 'css/upload.css'%}"
+    >
 {% endblock %}
 
 {% block header %}
-    <div class="element">
-        <a href="{% url 'homepage' %}"> home </a>
-        |
-        <a href="{% url 'show_all_movies' %}"> back to movies </a>
+    <div class="option_color">
+        <a href="{% url 'homepage' %}"> homepage </a>
+    </div>
+        |    
+    <div class="option_color">
+        <a href="{% url 'show_all_movies' %}"> back </a>
     </div>
 {% endblock %}
 
@@ -32,18 +40,19 @@
     onsubmit="document.getElementById('upload-overlay').style.display='block';"
     >
         {% csrf_token %}
-        <p>
-            THE NAME OF THE FILE(s) WILL BE USED AS THE NAME OF THE MOVIE.
-        </p>
-        <p>
-            YOU CAN EDIT THIS LATER.
-        </p>
+        
+        <br>
+        THE NAME(s) OF THE FILE(s) WILL BE USED AS THE NAME(s) OF THE MOVIE(s). <br>
+        YOU CAN EDIT THIS LATER. <br>
+        <br>
 
         <div>
-            <label for="m_file">Movie(s) To Upload:</label>
-            <input type="file" id="m_file" name="movie_files" required multiple>
+            <label class="upload_description" for="m_file">Movie(s) To Upload</label> : <br>
+            <input class="upload_description" type="file" id="m_file" name="movie_files" required multiple>
         </div>
-        <button type="submit">Add</button>
+
+        <br> <br>
+        <button class="submit_button" type="submit">Add</button>
 </form>
 
 {%endblock%}

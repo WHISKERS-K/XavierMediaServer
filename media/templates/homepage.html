@@ -1,28 +1,24 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>XAVIER</title>
+    <title>XAVIER MEDIA LIBRARY</title>
 {% endblock %}
 
 {% block res %}
 {% endblock %}
 
-{% block header %}
-{% endblock %}
 
 {%block body%}
-    <div class='title'> 
+    <div class='xavier_media_server_title'> 
         XAVIER MEDIA LIBRARY
     </div>
 
-    <div class='section'>
-        <ul>
-            <li>
-                <a href="{% url 'show_all_movies' %}"> MOVIES </a>
-            </li>
-            <li>
-                <a href="{% url 'show_all_series' %}"> SERIES/ANIME </a>
-            </li>
-        </ul>
+    <br>
+
+    <div class='option_basic_color'>
+        <a href="{% url 'show_all_movies' %}"> Movies </a> <br>
+        {% comment %} for now im deciding only to support movies {% endcomment %}
+        {% comment %} until everything is finished and polished {% endcomment %}
+        {% comment %} <a href="{% url 'show_all_series' %}"> Series </a> <br> {% endcomment %}
     </div>
 {%endblock%}

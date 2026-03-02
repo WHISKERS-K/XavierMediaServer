@@ -1,12 +1,12 @@
-/* hide default link style */
+/* links de-uglyfier */
 a, a:visited, a:hover, a:active, a:focus {
     text-decoration: none;
     outline: none;
-    color: inherit; /* Optional: Makes the link the same color as the surrounding text */
+    color: inherit;
 }
 
-/* background image */
-.base_background {
+/* dimensions scaled background image */
+.base_background_image {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,19 +14,19 @@ a, a:visited, a:hover, a:active, a:focus {
     width: 100%;
     height: 100%;
     object-fit: fill;
-    pointer-events: none;       /* Makes the image "invisible" to mouse clicks */
+    pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+ *//* Specifically prevents dragging in Webkit browsers */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
+/* make everything scale with the background */
 html {
-    font-size: 1.0vw;
+    font-size: 2.0vw;
     min-height: 100%;
     margin: 0;
-    /* This ensures the 'absolute' image stays inside EVERYTHING */
     position: relative;
-    color:rgb(255, 153, 0);
+    color: white;
 }

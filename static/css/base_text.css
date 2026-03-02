@@ -1,0 +1,48 @@
+.xavier_media_server_title {
+    color:orangered;
+    text-align: center;
+    font-size: 3.0vw;
+}
+
+.option_color {
+    color:beige;
+    display: inline;
+    font-size: 1.0vw;
+}
+
+.option_account_color {
+    color:gray;
+    display: inline;
+    font-size: 1.0vw;
+}
+
+.option_modify_color {
+    color:yellow;
+    display: inline;
+    font-size: 1.0vw;
+}
+
+.user_off_color {
+    color:red;
+    display: inline;
+    font-size: 1.2vw;
+}
+
+.user_on_color {
+    color:lime;
+    display: inline;
+    font-size: 1.2vw;
+}
+
+.option_basic_color {
+    color:darksalmon;
+    display: inline;
+    font-size: 1.5vw;
+}
+
+.basic_description {
+    color:burlywood;
+    display: inline;
+    font-size: 1.5vw;
+}
+

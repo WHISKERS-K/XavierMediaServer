@@ -37,39 +37,12 @@ class Movies(Model):
     def __str__(self):
         return self.movie_name
 
+#>0 = viewing permission
+#>1 = modifying permission
 class Profile(Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    
-class FavoritesM(Model):
-    user_fk = models.ForeignKey(
-        Profile,
-        on_delete=models.CASCADE
-    )
+    priv = models.IntegerField(null=True, blank=True, default=0)
 
-    movie_fk = models.ForeignKey(
-        Movies,
-        on_delete=models.CASCADE
-    )
-
-class FavoritesS(Model):
-    user_fk = models.ForeignKey(
-        Profile,
-        on_delete=models.CASCADE,
-    )
-
-    series_fk = models.ForeignKey(
-        Series,
-        on_delete=models.CASCADE,
-    )
-
-class FavoritesE(Model):
-    user_fk = models.ForeignKey(
-        Profile,
-        on_delete=models.CASCADE,
-    )
-
-    episode_fk = models.ForeignKey(
-        Series,
-        on_delete=models.CASCADE,
-    )
+    def __str__(self) -> str:
+        return self.user.get_username()
 

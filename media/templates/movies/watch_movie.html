@@ -6,28 +6,37 @@
         rel="stylesheet" 
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
-        
         href="{%static 'css/video.css'%}"
     >
 {% endblock %}
 
 {% block header %}
-    <div class="element">
+    <div class="option_color">
         <a href="{% url 'homepage' %}"> home </a>
+    </div>
+        |    
+    <div class="option_color">
+        <a href="{% url 'show_all_movies' %}"> back </a>
+    </div>
         |
-        <a href="{% url 'show_all_movies' %}"> back to movies </a>
-        |
+    <div class="option_modify_color">
         <a href="{% url 'edit_this_movie' movie.id %}"> edit movie! </a>
+    </div>
         |
+    <div  class="option_modify_color">
         <a href="{% url 'delete_this_movie' movie.id %}"> delete movie! </a>
     </div>
 {% endblock %}
 
 {% block body %}
-    
-    <div class="movie_title">
-        name = "{{movie.movie_name}}" <br>
-        id = {{movie.id}} <br>
+
+    name:
+    <div class="basic_description">
+        {{movie.movie_name}} <br>
+    </div>
+    id:
+    <div class="basic_description">
+        {{movie.id}} <br>
     </div>
 
     {% if movie.movie_file %}
@@ -37,5 +46,5 @@
                 <source src="{% url 'stream_movie' movie.id %}?v={% now 'U' %}">
             </video>
         </div>
-    {%endif%}
+    {% endif %}
 {% endblock %}

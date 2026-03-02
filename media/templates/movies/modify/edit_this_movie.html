@@ -1,19 +1,43 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block res %}
+    <link
+        rel="stylesheet" 
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        href="{%static 'css/upload.css'%}"
+    >
+{% endblock %}
+
+{% block header %}
+    <div class="option_color">
+        <a href="{% url 'homepage' %}"> homepage </a>
+    </div>
+        |    
+    <div class="option_color">
+        <a href="{% url 'watch_movie' movie_id %}"> back </a>
+    </div>
+{% endblock %}
 
 {%block body%}
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
-            <label for="m_name">New Name:</label>
+            <label class="upload_description" for="m_name">New Name</label> : <br>
             <input type="text" value="{{ prev_movie_name }}" id="m_name" name="movie_name" required>
         </div>
 
+        <br>
+
 		<div>
-            <label for="m_file">New File (optional):</label>
+            <label class="upload_description" for="m_file">New File</label> (optional) : <br>
             <input type="file" id="m_file" name="movie_file">
         </div>	
 
-        <button type="submit">EDIT</button>
+        <br> <br>
+
+        <button class="submit_button" type="submit">EDIT</button>
     </form>
 {%endblock%}

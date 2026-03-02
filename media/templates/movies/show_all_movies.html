@@ -1,22 +1,29 @@
 {%extends "base.html"%}
 
+{% comment %} MENU {% endcomment %}
 {% block header %}
-    <div class="element">
-        <a href="{% url 'homepage' %}"> home </a>
+    <div>
+        <div class="option_color">
+            <a href="{% url 'homepage' %}"> homepage </a>
+        </div>
         |
-        <a href="{% url 'add_this_movie' %}"> add movie </a>
+        <div class="option_modify_color">
+            <a  href="{% url 'add_this_movie' %}"> ADD MOVIE </a>
+        </div>
     </div>
 {% endblock %}
 
 {%block body%}
-    <div class="list_el">
-        MOVIE LIST BY NAME:
-        <ul>
+    MOVIE LIST BY NAME:
+    <div>
+        <ol>
             {% for m in movies %}
                 <li>
-                    <a href="{% url 'watch_movie' m.id %}">{{m.movie_name}}</a>
+                    <div class="option_basic_color">
+                        <a href="{% url 'watch_movie' m.id %}"> {{m.movie_name}} </a>
+                    </div>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     </div>
 {%endblock%}

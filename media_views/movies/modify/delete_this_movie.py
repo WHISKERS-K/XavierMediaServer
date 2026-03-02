@@ -2,11 +2,15 @@ import os
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
 
 from media.models import Movies
+from media_views.utility.check_priv import can_modify, can_view
 
 # gets the movie id from the url
 # then deletes it and redirects to all the movies
+@user_passes_test(can_view, login_url='homepage')
+@user_passes_test(can_modify, login_url='homepage')
 def delete_this_movie(request:HttpRequest, movie_id, cache_buster):
     try:
         selected_movie = Movies.objects.get(id=movie_id)

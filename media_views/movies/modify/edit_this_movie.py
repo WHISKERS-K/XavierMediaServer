@@ -2,10 +2,13 @@ import os
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
 
 from media.models import Movies
+from media_views.utility.check_priv import can_modify, can_view
 
-   
+@user_passes_test(can_view, login_url='homepage')
+@user_passes_test(can_modify, login_url='homepage')
 def edit_this_movie(request:HttpRequest, movie_id):
     sel_movie = Movies.objects.get(id=movie_id)
     
@@ -36,6 +39,7 @@ def edit_this_movie(request:HttpRequest, movie_id):
     render_template = 'movies/modify/edit_this_movie.html'
     pass_me = {
         'prev_movie_name': sel_movie.movie_name,
+        'movie_id':movie_id
     }
 
     return render(request, render_template, pass_me)
