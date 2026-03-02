@@ -17,7 +17,9 @@
         |
         <a href="{% url 'show_all_movies' %}"> back to movies </a>
         |
-        <a href="{% url 'delete_this_movie' movie.id %}"> delete movies! </a>
+        <a href="{% url 'edit_this_movie' movie.id %}"> edit movie! </a>
+        |
+        <a href="{% url 'delete_this_movie' movie.id %}"> delete movie! </a>
     </div>
 {% endblock %}
 
@@ -31,7 +33,8 @@
     {% if movie.movie_file %}
         <div class="video-header">
             <video controls>
-                <source src="{% url 'stream_movie' movie.id %}">
+                {% comment %} ?v={% now 'U' %} this fixes cache issues {% endcomment %}
+                <source src="{% url 'stream_movie' movie.id %}?v={% now 'U' %}">
             </video>
         </div>
     {%endif%}

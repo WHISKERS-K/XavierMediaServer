@@ -7,6 +7,7 @@ from media_views.movies.watch_movie import watch_movie
 ## MOVIES-MODIFY
 from media_views.movies.modify.add_this_movie import add_this_movie
 from media_views.movies.modify.delete_this_movie import delete_this_movie
+from media_views.movies.modify.edit_this_movie import edit_this_movie
 
 ## SERIES
 from media_views.series.show_all_series import ShowAllSeries
@@ -28,8 +29,6 @@ from media_forms.accounts.login import logout_view
 ##STREAMING
 from media_views.video.stream_movie import stream_movie
 
-##LEARNING
-from media_views.test.first_script import test_page
 
 # # CreateView
 # class EpisodeCreateView(CreateView):

@@ -3,14 +3,10 @@ import re
 import mimetypes
 
 from django.http import StreamingHttpResponse, HttpRequest
-
+from django.views.decorators.cache import never_cache
 from media.models import Movies
 
-# minecraft cobblestone generator /j
-# returns data from the file pointer start to end
-# in stupid chunks
-# it just works
-# Chunked generator to keep RAM usage near zero
+#Chunked generator to keep RAM usage near zero
 def chunk_generator(path, start, end, chunk_size=16384): # 16KB chunks
     with open(path, 'rb') as f:
         f.seek(start)
@@ -22,7 +18,7 @@ def chunk_generator(path, start, end, chunk_size=16384): # 16KB chunks
             yield data
             remaining -= len(data)
 
-
+@never_cache
 def stream_movie(request: HttpRequest, movie_id):
     # Fetch from the specific app model
     movie_db = Movies.objects.get(id=movie_id)
@@ -75,4 +71,9 @@ def stream_movie(request: HttpRequest, movie_id):
     response['Content-Range'] = f'bytes {start_byte}-{end_byte}/{file_size}'
     response['Content-Length'] = str(content_length)
     
+    ##This should fix videos getting stuck in cache
+    response['Cache-Control'] = 'no-cache, no-store, must-revalidate, proxy-revalidate'
+    response['Pragma'] = 'no-cache'  # For older browsers
+    response['Expires'] = '0'        # Marks the content as immediately expired
+
     return response

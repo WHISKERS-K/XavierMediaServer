@@ -13,9 +13,9 @@
         MOVIE LIST BY NAME:
         <ul>
             {% for m in movies %}
-                <el>
+                <li>
                     <a href="{% url 'watch_movie' m.id %}">{{m.movie_name}}</a>
-                </el>
+                </li>
             {% endfor %}
         </ul>
     </div>

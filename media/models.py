@@ -1,3 +1,6 @@
+import os
+import uuid
+
 from django.db import models
 from django.db.models import Model
 from django.contrib.auth.models import User
@@ -21,10 +24,15 @@ class Episodes(Model):
     def __str__(self):
         return self.episode_name
 
+def movies_files_by_id(instance, filename):
+    ext = filename.split('.')[-1]
+    new_filename = f"{uuid.uuid4()}.{ext}"
+
+    return f"movies/{new_filename}"
 
 class Movies(Model):
     movie_name = models.CharField(max_length=128, unique=True, null=True, blank=True)
-    movie_file = models.FileField(null=True, blank=True)
+    movie_file = models.FileField(null=True, blank=True, upload_to=movies_files_by_id)
 
     def __str__(self):
         return self.movie_name

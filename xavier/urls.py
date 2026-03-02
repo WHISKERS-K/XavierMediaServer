@@ -15,10 +15,11 @@ urlpatterns = [
     #MOVIES
     path('show_all_movies/', mv.ShowAllMovies.as_view(), name='show_all_movies'),
     path('watch_movie/<movie_id>/', mv.watch_movie, name='watch_movie'),
-    path('stream_movie/<movie_id>/', mv.stream_movie, name='stream_movie'),
+    path('stream_movie/<movie_id>', mv.stream_movie, name='stream_movie'),
     #MOVIES-MODIFY
     path('add_this_movie/', mv.add_this_movie, name='add_this_movie'),
     path('delete_this_movie/<movie_id>/', mv.delete_this_movie, name='delete_this_movie'),
+    path('edit_this_movie/<movie_id>/', mv.edit_this_movie, name='edit_this_movie'),
 
     #SERIES
     path('show_all_series/', mv.ShowAllSeries.as_view(), name='show_all_series'),
@@ -35,8 +36,5 @@ urlpatterns = [
     #LOGIN/LOGOUT
     path('login/', mv.login_view, name='login'),
     path('logout/', mv.logout_view, name='logout'),
-
-    ##LEARNING
-    path('first_script/', mv.test_page),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
