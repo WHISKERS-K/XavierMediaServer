@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%block login%}
+    <a href="{% url 'homepage' %}"> HOME </a> <br>
+    <a href="{% url 'delete_this_episode' series.id episode.id %}"> remove episode </a> <br>
+{%endblock%}
+
+{% block body %}
+    <h1>{{series.series_name}}</h1>
+    {% if episode.episode_file %}
+    <video controls>
+        <source src="{{episode.episode_file.url}}">
+    </video>
+    {%endif%}
+{% endblock %}

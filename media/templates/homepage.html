@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>XAVIER</title>
+{% endblock %}
+
+{% block res %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{%block body%}
+    <div class='title'> 
+        XAVIER MEDIA LIBRARY
+    </div>
+
+    <div class='section'>
+        <ul>
+            <li>
+                <a href="{% url 'show_all_movies' %}"> MOVIES </a>
+            </li>
+            <li>
+                <a href="{% url 'show_all_series' %}"> SERIES/ANIME </a>
+            </li>
+        </ul>
+    </div>
+{%endblock%}

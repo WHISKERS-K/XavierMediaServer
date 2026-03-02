@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block login%}
+    <a href="{% url 'homepage' %}"> HOME </a> <br>
+    <a href="{% url 'add_this_episode' series.id %}"> add episode </a> <br>
+{%endblock%}
+
+{% block body %}
+    <h3>{{series.series_name}}:</h3>
+    {%for e in episodes%}
+        <ul>
+            <li>
+                <a href="{% url 'watch_series' series.id e.id %}"> {{e.episode_name}} </a>
+            </li>
+        </ul>
+    {%endfor%}
+{% endblock %}

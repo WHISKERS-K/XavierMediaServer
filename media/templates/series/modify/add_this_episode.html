@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% comment %} <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form> {% endcomment %}
+
+{%block body%}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="e_name">Name</label>
+            <input type="text" id="e_name" name="episode_name" required>
+        </div>
+        <div>
+            <label for="e_file">File:</label>
+            <input type="file" id="e_file" name="episode_file" required>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+{%endblock%}

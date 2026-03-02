@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block res %}
+    <link
+        rel="stylesheet" 
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        
+        href="{%static 'css/video.css'%}"
+    >
+{% endblock %}
+
+{% block header %}
+    <div class="element">
+        <a href="{% url 'homepage' %}"> home </a>
+        |
+        <a href="{% url 'show_all_movies' %}"> back to movies </a>
+        |
+        <a href="{% url 'delete_this_movie' movie.id %}"> delete movies! </a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    
+    <div class="movie_title">
+        name = "{{movie.movie_name}}" <br>
+        id = {{movie.id}} <br>
+    </div>
+
+    {% if movie.movie_file %}
+        <div class="video-header">
+            <video controls>
+                <source src="{% url 'stream_movie' movie.id %}">
+            </video>
+        </div>
+    {%endif%}
+{% endblock %}

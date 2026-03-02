@@ -1,0 +1,33 @@
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Shifts it back by half its own width */
+    font-size: 3.5vw;
+    white-space: nowrap;         /* Prevents the text from wrapping weirdly */
+}
+
+.list_el {
+    font-size: 2.0vw;
+}
+
+.movie_title {
+    font-size: 3.0vw;
+}
+
+.section {
+    font-size: 2.5vw;
+}
+
+.element {
+    font-size: 1.2vw;
+    color:rgb(161, 161, 161);
+}
+.user_text {
+    font-size: 1.8vw;
+    color:rgb(255, 255, 255);
+}
+
+.login_text {
+    font-size: 1.4vw;
+    color:rgb(255, 255, 255);
+}

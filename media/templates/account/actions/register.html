@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title> XAVIER - REGISTER ACCOUNT </title>
+{% endblock %}
+
+{% block res %}
+{% endblock %}
+
+{% block header %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+{% endblock %}
+
+{% block body %}
+{% endblock %}

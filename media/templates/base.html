@@ -1,0 +1,72 @@
+{% load static %}
+
+<html>
+    <head>
+        {% comment %} PREDEF CSS FILES {% endcomment %}
+        <link
+            rel="stylesheet" 
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            
+            href="{%static 'css/base.css'%}"
+        >
+        
+        <link
+            rel="stylesheet" 
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            
+            href="{%static 'css/text.css'%}"
+        >
+        
+        {% comment %} aditional resource like css/js {% endcomment %}
+        {% block res %}
+        {% endblock %}
+
+        {% block title %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <img 
+            class="base_background" 
+            referrerpolicy="no-referrer"
+            draggable="false"
+
+            src="{%static 'img/bg.jpg'%}?v0"
+        > 
+
+        <header>
+            {% comment %} ACCOUNT SECTION {% endcomment %}
+            {% if user.is_authenticated %}
+                <div class="user_text">
+                    [{{ user.username }}]
+                    <br>
+                </div>
+
+                <div class="login_text">
+                    <a href="{% url 'logout' %}">logout</a>
+                </div>
+
+            {% else %}
+                <div class="user_text">
+                    Not connected
+                    <br>
+                </div>
+
+                <div class="login_text">
+                    <a href="{% url 'register' %}">Register</a>
+                    |
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+            {% endif %}
+
+            {% block header %}
+            {% endblock %}
+            <br>
+        </header>
+        
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,21 @@
+.video-header {
+    width: 100%;
+    height: 100vh; /* Exactly one screen height */
+    overflow: hidden;
+    position: relative;
+    background-color: black; /* Prevents white flash before load */
+
+    /* Thin 2px border with your specific orange */
+    border: 2px solid rgb(255, 153, 0); 
+    
+    /* Prevents the 2px from pushing the content down */
+    box-sizing: border-box;
+
+}
+
+.video-header video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}

@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{% block header %}
+    <div class="element">
+        <a href="{% url 'homepage' %}"> home </a>
+        |
+        <a href="{% url 'add_this_movie' %}"> add movie </a>
+    </div>
+{% endblock %}
+
+{%block body%}
+    <div class="list_el">
+        MOVIE LIST BY NAME:
+        <ul>
+            {% for m in movies %}
+                <el>
+                    <a href="{% url 'watch_movie' m.id %}">{{m.movie_name}}</a>
+                </el>
+            {% endfor %}
+        </ul>
+    </div>
+{%endblock%}

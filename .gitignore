@@ -1,0 +1,17 @@
+##LINUX/IDE FILES
+.Trash-1000
+.vscode/
+.venv/
+
+##SCRIPT
+cmd.sh
+
+##VIDEO FILES
+media_files/*
+!media_files/.gitkeep
+
+##PYTHON
+__pycache__
+
+##DATABASE
+db.sqlite3

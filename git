@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -t xavier "cd /home/xavier/Xavier-Media-Server; bash -l -c 'git $@'"

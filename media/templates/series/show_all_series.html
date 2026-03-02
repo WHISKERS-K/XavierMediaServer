@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+
+{% block header %}
+    <div class="element">
+        <a href="{% url 'homepage' %}"> home </a>
+        |
+        <a href="{% url 'add_this_series' %}"> add series </a>
+    </div>
+{% endblock %}
+
+{%block body%}
+    {% for s in series %}
+        <a href="{% url 'show_series' s.id %}"> {{s.series_name}} </a> <br>
+    {% endfor %}
+{%endblock%}
